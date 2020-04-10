@@ -13,6 +13,7 @@
 		AC410C5C2440D2F000F98764 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC410C5B2440D2F000F98764 /* Assets.xcassets */; };
 		AC410C5F2440D2F000F98764 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC410C5D2440D2F000F98764 /* LaunchScreen.storyboard */; };
 		AC410C6A2440D3DC00F98764 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410C692440D3DC00F98764 /* Person.swift */; };
+		AC410C6E2440D45100F98764 /* PairController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410C6D2440D45100F98764 /* PairController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AC410C5E2440D2F000F98764 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC410C602440D2F000F98764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC410C692440D3DC00F98764 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		AC410C6D2440D45100F98764 /* PairController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		AC410C512440D2F000F98764 /* Pairs */ = {
 			isa = PBXGroup;
 			children = (
+				AC410C6B2440D43000F98764 /* Controllers */,
 				AC410C682440D3D100F98764 /* Model */,
 				AC410C662440D30B00F98764 /* Storyboard */,
 				AC410C672440D31600F98764 /* Resources */,
@@ -89,6 +92,22 @@
 				AC410C692440D3DC00F98764 /* Person.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AC410C6B2440D43000F98764 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AC410C6C2440D43B00F98764 /* Model Controller */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AC410C6C2440D43B00F98764 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AC410C6D2440D45100F98764 /* PairController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +184,7 @@
 				AC410C6A2440D3DC00F98764 /* Person.swift in Sources */,
 				AC410C532440D2F000F98764 /* AppDelegate.swift in Sources */,
 				AC410C552440D2F000F98764 /* SceneDelegate.swift in Sources */,
+				AC410C6E2440D45100F98764 /* PairController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
