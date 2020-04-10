@@ -18,6 +18,11 @@ class PairController {
     // MARK: - Properties
     
     var persons: [Person] = []
+    var numberOfPairs: Int {
+        get {
+            return (persons.count / 2) + 1
+        }
+    }
     
     
     // MARK: - Initializer
