@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Person {
+struct Person : Codable {
     let name: String
 }
