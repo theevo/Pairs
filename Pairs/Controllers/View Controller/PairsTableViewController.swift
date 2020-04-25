@@ -20,18 +20,23 @@ class PairsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return PairController.shared.numberOfPairs
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PairController.shared.persons.count
+        return PairController.shared.oddPersons &&
+            (section == PairController.shared.numberOfPairs - 1) ? 1 : 2
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Pair \(section + 1)"
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath)
         
-        let person = PairController.shared.persons[indexPath.row]
+        let person = PairController.shared.pairs[indexPath.section][indexPath.row]
         
         cell.textLabel?.text = person.name
 

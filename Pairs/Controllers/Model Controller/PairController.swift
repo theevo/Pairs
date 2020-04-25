@@ -23,6 +23,42 @@ class PairController {
             return (persons.count / 2) + 1
         }
     }
+    var oddPersons: Bool {
+        get {
+            persons.count % 2 == 1
+        }
+    }
+    var pairs: [[Person]] {
+        get {
+            var pairs = [[Person]]()
+            var section = 0
+            var row = 0
+            
+            for person in persons {
+                if row == 0 {
+                    
+                    // this is a new section!
+                    
+                    var sectionArray = [Person]() // create the subarray
+                    sectionArray.append(person)
+                    pairs.append(sectionArray)
+                    row = 1
+                } else {
+                    
+                    // the section is already there. just add the thing.
+                    
+                    var sectionArray = pairs[section]
+                    sectionArray.append(person)
+                    pairs[section] = sectionArray // replace what's there
+                    
+                    section += 1
+                    row = 0
+                }
+            }
+            
+            return pairs
+        }
+    }
     
     
     // MARK: - Initializer
@@ -35,6 +71,9 @@ class PairController {
     
     
     // MARK: - Helpers
+    
+    
+    
     func loadMockData() {
         persons = [ Person(name: "Theo Vora"),
                     Person(name: "Garrett Lyons"),
