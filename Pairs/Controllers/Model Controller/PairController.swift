@@ -20,7 +20,8 @@ class PairController {
     var persons: [Person] = []
     var numberOfPairs: Int {
         get {
-            return (persons.count / 2) + 1
+            let half = persons.count / 2
+            return oddPersons ? half + 1 : half
         }
     }
     var oddPersons: Bool {
@@ -79,6 +80,16 @@ class PairController {
                     Person(name: "Garrett Lyons"),
                     Person(name: "Dwight Wong")
         ]
+    }
+    
+    
+    // MARK: - CRUD
+    
+    func add(personByName: String) {
+        let newPerson = Person(name: personByName)
+        persons.append(newPerson)
+        
+        saveToPersistentStorage(persons: persons)
     }
     
     

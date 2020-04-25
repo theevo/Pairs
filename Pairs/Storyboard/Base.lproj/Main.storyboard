@@ -38,7 +38,13 @@
                             <outlet property="delegate" destination="1db-fA-hxV" id="4fL-NV-4Hy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pairs" id="Prx-aA-BOy"/>
+                    <navigationItem key="navigationItem" title="Pairs" id="Prx-aA-BOy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eJb-sx-KqA">
+                            <connections>
+                                <action selector="addPersonButtonTapped:" destination="1db-fA-hxV" id="Kyy-Ce-Hyp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vlI-iV-Vw9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

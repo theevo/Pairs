@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PairsTableViewController: UITableViewController {
+class PairsTableViewController: UITableViewController, UITextFieldDelegate {
     
     // MARK: - Lifecycle
     
@@ -42,5 +42,37 @@ class PairsTableViewController: UITableViewController {
 
         return cell
     }
+    
+    
+    // MARK: - Actions
+    
+    @IBAction func addPersonButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Add person", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.delegate = self
+            textField.placeholder = "First & Last Name"
+            textField.autocorrectionType = .yes
+            textField.autocapitalizationType = .words
+        }
+        
+        let saveButton = UIAlertAction(title: "Save", style: .default) { (_) in
+            guard let name = alert.textFields?.first?.text,
+                !name.isEmpty else { return }
+            
+            PairController.shared.add(personByName: name)
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        alert.addAction(saveButton)
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelButton)
+        
+        present(alert, animated: true)
+    }
+    
 
 }
