@@ -16,7 +16,8 @@ class PairsTableViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
     }
-
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -73,6 +74,15 @@ class PairsTableViewController: UITableViewController, UITextFieldDelegate {
         
         present(alert, animated: true)
     }
+    
+    @IBAction func randomizeButtonTapped(_ sender: Any) {
+        PairController.shared.randomize()
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     
 
 }
