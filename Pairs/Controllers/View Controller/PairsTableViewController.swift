@@ -33,7 +33,6 @@ class PairsTableViewController: UITableViewController, UITextFieldDelegate {
         return "Pair \(section + 1)"
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath)
         
@@ -44,6 +43,15 @@ class PairsTableViewController: UITableViewController, UITextFieldDelegate {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            PairController.shared.delete(atIndexPath: indexPath)
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     // MARK: - Actions
     

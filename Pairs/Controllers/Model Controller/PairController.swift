@@ -98,7 +98,12 @@ class PairController {
         saveToPersistentStorage(persons: persons)
     }
     
-    
+    func delete(atIndexPath indexPath: IndexPath) {
+        let index = (2*indexPath.section) + indexPath.row
+        persons.remove(at: index)
+        
+        saveToPersistentStorage(persons: persons)
+    }
     
     
     //MARK: - Persistence
